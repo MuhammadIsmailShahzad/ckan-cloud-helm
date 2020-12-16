@@ -14,11 +14,10 @@ jobs:
     - name: Download and Install
       uses: wei/curl@master
       with:
-          args: curl -L https://raw.githubusercontent.com/OriHoch/travis-ci-operator/master/travis_ci_operator.sh > travis_ci_operator.sh
+          args: curl -L https://raw.githubusercontent.com/OriHoch/travis-ci-operator/master/travis_ci_operator.sh > /home/runner/bin/travis_ci_operator.sh
     - name: Install
       run: |
         ls -a
-        sudo chmod +x ./travis_ci_operator.sh
         bash ./travis_ci_operator.sh init
         bash ./travis.sh install
       shell: bash
