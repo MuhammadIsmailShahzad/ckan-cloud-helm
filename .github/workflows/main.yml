@@ -9,13 +9,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2.3.1
-      env:
-        TRAVIS_CI_OPERATOR: 1
+    - run: mkdir home/runner/bin/
     - name: Download and Install
       uses: wei/curl@master
       with:
           args: curl -L https://raw.githubusercontent.com/OriHoch/travis-ci-operator/master/travis_ci_operator.sh > /home/runner/bin/travis_ci_operator.sh
     - name: Install
+      env:
+        TRAVIS_CI_OPERATOR: 1
       run: |
         ls -a
         bash ./travis_ci_operator.sh init
