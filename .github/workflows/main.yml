@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2.3.1
+      uses: actions/checkout@v2.3.
+    - name: Make directory
+      run: mkdir $HOME/bin/
     - name: Download and Install
       uses: wei/curl@master
       with:
