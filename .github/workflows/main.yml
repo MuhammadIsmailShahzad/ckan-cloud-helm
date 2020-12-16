@@ -12,5 +12,5 @@ jobs:
           args: curl -L https://raw.githubusercontent.com/OriHoch/travis-ci-operator/master/travis_ci_operator.sh > travis_ci_operator.sh
     - name: Run the script
       run: |
-        echo Download Complete!
+        ls
       shell: bash
