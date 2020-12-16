@@ -1,16 +1,28 @@
 name: Continuous Deployment
 on: [push]
 jobs:
-  deploy:
+  CICD:
     runs-on: ubuntu-latest
+    services:
+      docker:
+        image: docker
     steps:
     - name: Checkout
       uses: actions/checkout@v2.3.1
+      env:
+        TRAVIS_CI_OPERATOR: 1
     - name: Download and Install
       uses: wei/curl@master
       with:
           args: curl -L https://raw.githubusercontent.com/OriHoch/travis-ci-operator/master/travis_ci_operator.sh > travis_ci_operator.sh
+    - name: Install
+      run: |
+        bash ./travis_ci_operator.sh init
+        bash .travis.sh install
+      shell: bash
     - name: Run the script
       run: |
-        ls
+        bash .travis.sh script
       shell: bash
+    - name: deploy
+      run: bash .travis.sh deploy
