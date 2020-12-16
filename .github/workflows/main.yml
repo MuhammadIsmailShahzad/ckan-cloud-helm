@@ -18,6 +18,8 @@ jobs:
         TRAVIS_CI_OPERATOR: 1
       run: |
         ls -a
+        mkdir -p $HOME/bin/
+        mv travis_ci_operator.sh $HOME/bin/travis_ci_operator.sh
         bash $HOME/bin/travis_ci_operator.sh init
         bash $HOME/bin//travis.sh install
       shell: bash
