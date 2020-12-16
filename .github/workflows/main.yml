@@ -19,8 +19,8 @@ jobs:
       run: |
         ls -a
         sudo chmod +x ./travis_ci_operator.sh
-        sh ./travis_ci_operator.sh init
-        sh ./travis.sh install
+        bash ./travis_ci_operator.sh init
+        bash ./travis.sh install
       shell: bash
     - name: Run the script
       run: |
