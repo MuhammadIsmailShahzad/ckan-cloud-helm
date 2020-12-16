@@ -1,0 +1,17 @@
+name: Continuous Deployment
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.3.1
+    - name: Download and Install
+      uses: wei/curl@master
+      with:
+          args: curl -L https://raw.githubusercontent.com/OriHoch/travis-ci-operator/master/travis_ci_operator.sh > $HOME/bin/travis_ci_operator.sh
+      run: |
+        echo Download Complete
