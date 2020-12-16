@@ -17,9 +17,10 @@ jobs:
           args: curl -L https://raw.githubusercontent.com/OriHoch/travis-ci-operator/master/travis_ci_operator.sh > travis_ci_operator.sh
     - name: Install
       run: |
-        sudo chmod +x travis_ci_operator.sh
-        travis_ci_operator.sh init
-        travis.sh install
+        ls -a
+        sudo chmod +x ./travis_ci_operator.sh
+        sh ./travis_ci_operator.sh init
+        sh ./travis.sh install
       shell: bash
     - name: Run the script
       run: |
