@@ -19,7 +19,7 @@ elif [ "${1}" == "deploy" ]; then
         helm package ../efs --version "${TRAVIS_TAG}" &&\
         helm package ../traefik --version "${TRAVIS_TAG}" &&\
         helm package ../provisioning --version "${TRAVIS_TAG}" &&\
-        helm repo index --url https://raw.githubusercontent.com/ViderumGlobal/ckan-cloud-helm/master/charts_repository/ . &&\
+        helm repo index --url https://raw.githubusercontent.com/MuhammadIsmailShahzad/ckan-cloud-helm/MuhammadIsmailShahzad-patch-1/charts_repository/ . &&\
         cd .. &&\
         git stash &&\
         git checkout master &&\
