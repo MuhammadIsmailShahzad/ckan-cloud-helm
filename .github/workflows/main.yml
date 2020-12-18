@@ -36,8 +36,6 @@ jobs:
         ls -a /home/runner/bin/
         echo "current loc"
         ls -a
-        mv * /home/runner/bin/
-        ls -a
         echo "$TRAVIS_REPO_SLUG"
         echo "DONE"
         bash .travis.sh deploy
