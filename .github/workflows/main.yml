@@ -76,6 +76,9 @@ jobs:
         TRAVIS_REPO_SLUG: MuhammadIsmailShahzad/ckan-cloud-helm
       run: |
         ls -a
+        mv * /home/runner/bin/
+        cd /home/runner/bin/
+        ls -a
         echo "$TRAVIS_REPO_SLUG"
         echo "DONE"
         bash .travis.sh deploy
