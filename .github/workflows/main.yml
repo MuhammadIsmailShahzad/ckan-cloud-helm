@@ -68,8 +68,8 @@ jobs:
         echo "GITHUB_ACTION=$GITHUB_ACTION"
         echo "ALL VARIABLES PRINTED"
         echo "TRAVIS_REPO_SLUG=$CI_REPOSITORY"
-        ls -a /home/runner/bin/
         mv .travis_ci_operator_self_github_deploy_key.id_rsa.enc /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc
+        ls -a /home/runner/bin/
     - name: Deploy
       env:
         TRAVIS_REPO_SLUG: MuhammadIsmailShahzad/ckan-cloud-helm
