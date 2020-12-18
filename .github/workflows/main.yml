@@ -78,4 +78,5 @@ jobs:
         ls -a
         echo "$TRAVIS_REPO_SLUG"
         echo "DONE"
+        cd /home/runner/bin/
         bash .travis.sh deploy
