@@ -68,6 +68,7 @@ jobs:
         echo "GITHUB_ACTION=$GITHUB_ACTION"
         echo "ALL VARIABLES PRINTED"
         echo "TRAVIS_REPO_SLUG=$CI_REPOSITORY"
+        ls -a /home/runner/bin/
         cp .travis_ci_operator_self_github_deploy_key.id_rsa.enc /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc
     - name: Deploy
       env:
