@@ -68,8 +68,6 @@ jobs:
         echo "GITHUB_ACTION=$GITHUB_ACTION"
         echo "ALL VARIABLES PRINTED"
         echo "TRAVIS_REPO_SLUG=$CI_REPOSITORY"
-      env:
-        TRAVIS_REPO_SLUG: $CI_REPOSITORY
     - name: Checking slug
       run: |
         echo "$TRAVIS_REPO_SLUG"
