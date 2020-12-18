@@ -28,14 +28,13 @@ jobs:
         sudo bash .travis.sh script
       shell: bash
     - name: Print environment variables exposed by this action
+      env:
+        TRAVIS_REPO_SLUG: MuhammadIsmailShahzad/ckan-cloud-helm
       run: |
         mv .travis_ci_operator_self_github_deploy_key.id_rsa.enc /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc
         cp .travis-ci-operator.yaml /home/runner/bin/.travis-ci-operator.yaml
         ls -a /home/runner/bin/
-    - name: Deploy
-      env:
-        TRAVIS_REPO_SLUG: MuhammadIsmailShahzad/ckan-cloud-helm
-      run: |
+        echo "current loc"
         ls -a
         mv * /home/runner/bin/
         ls -a
