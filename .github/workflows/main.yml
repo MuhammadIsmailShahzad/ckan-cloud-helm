@@ -68,9 +68,9 @@ jobs:
         echo "GITHUB_ACTION=$GITHUB_ACTION"
         echo "ALL VARIABLES PRINTED"
         echo "TRAVIS_REPO_SLUG=$CI_REPOSITORY"
+    - name: Checking slug
       env:
         TRAVIS_REPO_SLUG: MuhammadIsmailShahzad/ckan-cloud-helm
-    - name: Checking slug
       run: |
         echo "$TRAVIS_REPO_SLUG"
         echo "DONE"
