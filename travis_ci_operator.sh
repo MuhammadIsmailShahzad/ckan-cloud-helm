@@ -47,6 +47,9 @@ elif [ "${1}" == "github-update" ]; then
     else
         echo WARNING: deploy key file not found
     fi
+    ls -a
+    echo homerepo
+    ls -a /home/runner/bin/
     GIT_REPO="git@github.com:${GITHUB_REPO_SLUG}.git"
     TEMPDIR=`mktemp -d`
     echo Cloning git repo ${GIT_REPO} branch ${GIT_BRANCH}
