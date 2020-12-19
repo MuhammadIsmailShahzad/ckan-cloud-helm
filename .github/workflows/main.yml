@@ -22,12 +22,10 @@ jobs:
         mv travis_ci_operator.sh $HOME/bin/travis_ci_operator.sh
         sudo bash $HOME/bin/travis_ci_operator.sh init
         sudo bash .travis.sh install
-      shell: bash
     - name: Run the script
       run: |
         sudo bash .travis.sh script
-      shell: bash
-    - name: Print environment variables exposed by this action
+    - name: Deploy
       env:
         TRAVIS_REPO_SLUG: MuhammadIsmailShahzad/ckan-cloud-helm
         encrypted_3a25b31f1ad6_key: ${{ secrets.TRAVIS_KEY }}
@@ -36,14 +34,7 @@ jobs:
         mkdir -p ~/.ssh/
         git config --global user.email "travis-ci-operator@null"
         git config --global user.name "travis-ci-operator"
-        echo "${{ secrets.TRAVIS_KEY }}"
-        pwd
         cp .travis_ci_operator_self_github_deploy_key.id_rsa.enc /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc
         cp .travis-ci-operator.yaml /home/runner/bin/.travis-ci-operator.yaml
-        ls -a /home/runner/bin/
-        echo "current loc"
         cp /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc .
-        ls -a
-        echo "$TRAVIS_REPO_SLUG"
-        echo "DONE"
         bash .travis.sh deploy
