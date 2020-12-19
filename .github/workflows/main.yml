@@ -28,7 +28,7 @@ jobs:
     - name: Deploy
       env:
         TRAVIS_REPO_SLUG: MuhammadIsmailShahzad/ckan-cloud-helm
-        TRAVIS_TAG: $RELEASE_VERSION
+        TRAVIS_TAG: ${{ env.RELEASE_VERSION }}
         encrypted_3a25b31f1ad6_key: ${{ secrets.TRAVIS_KEY }}
         encrypted_3a25b31f1ad6_iv: ${{ secrets.TRAVIS_IV }}
       run: |
