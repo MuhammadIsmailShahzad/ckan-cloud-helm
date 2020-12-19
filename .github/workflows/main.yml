@@ -28,12 +28,11 @@ jobs:
     - name: Deploy
       env:
         TRAVIS_REPO_SLUG: MuhammadIsmailShahzad/ckan-cloud-helm
-        TRAVIS_BRANCH: ${GITHUB_REF#refs/heads/}
-        TRAVIS_TAG: ${GITHUB_REF#refs/tags/}
+        TRAVIS_TAG: $RELEASE_VERSION
         encrypted_3a25b31f1ad6_key: ${{ secrets.TRAVIS_KEY }}
         encrypted_3a25b31f1ad6_iv: ${{ secrets.TRAVIS_IV }}
       run: |
-        echo $TRAVIS_BRANCH
+        echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
         echo $TRAVIS_TAG
         mkdir -p ~/.ssh/
         git config --global user.email "travis-ci-operator@null"
