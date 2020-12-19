@@ -13,14 +13,22 @@ elif [ "${1}" == "script" ]; then
 
 elif [ "${1}" == "deploy" ]; then
     $HOME/bin/travis_ci_operator.sh github-update self master "
+        echo travis_ci run passed
         cd charts_repository &&\
+        echo cd run passed
         git checkout ${TRAVIS_BRANCH} && git checkout master -- index.yaml && git commit -m. ;\
+        echo checkout run passed
         helm package ../ckan --version "${TRAVIS_TAG}" &&\
+        echo helmckan run passed
         helm package ../efs --version "${TRAVIS_TAG}" &&\
+        echo helmefs run passed
         helm package ../traefik --version "${TRAVIS_TAG}" &&\
+        echo traffic run passed
         helm package ../provisioning --version "${TRAVIS_TAG}" &&\
-        helm repo index --url https://raw.githubusercontent.com/ViderumGlobal/ckan-cloud-helm/master/charts_repository/ . &&\
+        helm repo index --url https://raw.githubusercontent.com/MuhammadIsmailShahzad/ckan-cloud-helm/master/charts_repository/ . &&\
+        echo index run passed
         cd .. &&\
+        echo stashing
         git stash &&\
         git checkout master &&\
         git stash apply &&\
