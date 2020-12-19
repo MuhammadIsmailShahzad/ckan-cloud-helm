@@ -18,14 +18,14 @@ elif [ "${1}" == "deploy" ]; then
         echo cd run passed
         git checkout ${TRAVIS_BRANCH} && git checkout master -- index.yaml && git commit -m. ;\
         echo checkout run passed
-        helm package ../ckan --version "${TRAVIS_TAG}" &&\
+        sudo helm package ../ckan --version "${TRAVIS_TAG}" &&\
         echo helmckan run passed
-        helm package ../efs --version "${TRAVIS_TAG}" &&\
+        sudo helm package ../efs --version "${TRAVIS_TAG}" &&\
         echo helmefs run passed
-        helm package ../traefik --version "${TRAVIS_TAG}" &&\
+        sudo helm package ../traefik --version "${TRAVIS_TAG}" &&\
         echo traffic run passed
-        helm package ../provisioning --version "${TRAVIS_TAG}" &&\
-        helm repo index --url https://raw.githubusercontent.com/MuhammadIsmailShahzad/ckan-cloud-helm/master/charts_repository/ . &&\
+        sudo helm package ../provisioning --version "${TRAVIS_TAG}" &&\
+        sudo helm repo index --url https://raw.githubusercontent.com/MuhammadIsmailShahzad/ckan-cloud-helm/master/charts_repository/ . &&\
         echo index run passed
         cd .. &&\
         echo stashing
