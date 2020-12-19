@@ -40,7 +40,7 @@ elif [ "${1}" == "github-update" ]; then
     [ -z "${GITHUB_REPO_SLUG}" ] && echo missing GITHUB_REPO_SLUG && exit 1
     ! $(eval echo `python /home/runner/bin/read_yaml.py /home/runner/bin/.travis-ci-operator.yaml ${DEPLOY_KEY_NAME}DeployKeyDecryptCmd`) \
         && echo Failed to get deploy key && exit 1
-    GITHUB_DEPLOY_KEY_FILE="/home/runner/bin/.travis_ci_operator_${DEPLOY_KEY_NAME}_github_deploy_key.id_rsa"
+    GITHUB_DEPLOY_KEY_FILE=".travis_ci_operator_${DEPLOY_KEY_NAME}_github_deploy_key.id_rsa"
     if [ -e "${GITHUB_DEPLOY_KEY_FILE}" ]; then
         cp -f "${GITHUB_DEPLOY_KEY_FILE}" ~/.ssh/id_rsa && chmod 400 ~/.ssh/id_rsa
         [ "$?" != "0" ] && echo failed to setup deploy key for pushing to GitHub && exit 1
