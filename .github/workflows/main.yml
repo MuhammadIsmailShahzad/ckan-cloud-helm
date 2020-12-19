@@ -33,6 +33,8 @@ jobs:
         encrypted_3a25b31f1ad6_key: ${{ secrets.TRAVIS_KEY }}
         encrypted_3a25b31f1ad6_iv: ${{ secrets.TRAVIS_IV }}
       run: |
+        echo $TRAVIS_BRANCH
+        echo $TRAVIS_TAG
         mkdir -p ~/.ssh/
         git config --global user.email "travis-ci-operator@null"
         git config --global user.name "travis-ci-operator"
