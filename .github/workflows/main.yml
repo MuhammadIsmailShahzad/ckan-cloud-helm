@@ -34,6 +34,7 @@ jobs:
         encrypted_3a25b31f1ad6_iv: ${{ secrets.TRAVIS_IV }}
       run: |
         echo "${{ secrets.TRAVIS_KEY }}"
+        pwd
         cp .travis_ci_operator_self_github_deploy_key.id_rsa.enc /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc
         cp .travis-ci-operator.yaml /home/runner/bin/.travis-ci-operator.yaml
         ls -a /home/runner/bin/
