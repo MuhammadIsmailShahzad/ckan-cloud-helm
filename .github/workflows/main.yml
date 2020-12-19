@@ -40,4 +40,4 @@ jobs:
         cp .travis_ci_operator_self_github_deploy_key.id_rsa.enc /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc
         cp .travis-ci-operator.yaml /home/runner/bin/.travis-ci-operator.yaml
         cp /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc .
-        bash .travis.sh deploy
+        sudo bash .travis.sh deploy
