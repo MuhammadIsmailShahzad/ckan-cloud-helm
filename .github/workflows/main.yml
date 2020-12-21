@@ -17,7 +17,6 @@ jobs:
       uses: FranzDiebold/github-env-vars-action@v2
     - name: Install and init 
       run: |
-        ls -a
         mkdir -p $HOME/bin/
         mv travis_ci_operator.sh $HOME/bin/travis_ci_operator.sh
         sudo bash $HOME/bin/travis_ci_operator.sh init
@@ -34,12 +33,8 @@ jobs:
         encrypted_3a25b31f1ad6_key: ${{ secrets.TRAVIS_KEY }}
         encrypted_3a25b31f1ad6_iv: ${{ secrets.TRAVIS_IV }}
       run: |
-        echo $TRAVIS_TAG
-        echo $TRAVIS_REPO_SLUG
         mkdir -p ~/.ssh/
         git config --global user.email "travis-ci-operator@null"
         git config --global user.name "travis-ci-operator"
-        cp .travis_ci_operator_self_github_deploy_key.id_rsa.enc /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc
-        cp .travis-ci-operator.yaml /home/runner/bin/.travis-ci-operator.yaml
-        cp /home/runner/bin/.travis_ci_operator_self_github_deploy_key.id_rsa.enc .
+        cp .travis-ci-operator.yaml $HOME/.travis-ci-operator.yaml
         bash .travis.sh deploy
