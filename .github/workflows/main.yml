@@ -1,5 +1,8 @@
 name: Continuous Deployment
-on: [push]
+on: 
+  push:
+    tags:
+      - '*'
 jobs:
   CICD:
     runs-on: ubuntu-latest
